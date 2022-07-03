@@ -8,6 +8,9 @@
 // @grant        none
 // ==/UserScript==
 
+setSPD=3;//playbackRate
+setTimeInterval=2000;//TimeInterval
+
 
 function addGlobalStyle(css) {
     var head, style;
@@ -26,10 +29,11 @@ addGlobalStyle('.ytp-ad-overlay-container { display: none !important; }');
 
 window.setInterval(
   function () {
+      document.getElementsByTagName('video')[0].playbackRate=setSPD;
      var elmButton = document.querySelector('.ytp-ad-skip-button');
     
     if (elmButton) {
       elmButton.click();
     }
   },
-3000);
+setTimeInterval);
